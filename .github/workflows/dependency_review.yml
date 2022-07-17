@@ -1,5 +1,7 @@
+---
 name: 'Dependency Review'
-on: [pull_request]
+"on":
+  pull_request:
 
 # https://github.com/actions/dependency-review-action
 
@@ -13,4 +15,4 @@ jobs:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3
       - name: 'Dependency Review'
-        uses: actions/dependency-review-action@v1
+        uses: actions/dependency-review-action@v2
