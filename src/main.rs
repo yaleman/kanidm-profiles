@@ -5,7 +5,7 @@ use std::fs::File;
 use serde::{Deserialize, Serialize};
 use std::io::{ErrorKind, Read, Write};
 
-use console::Term;
+use console::{style, Term};
 const CONFIG_PATH: &str = "~/.config/kanidm";
 const PROFILE_PATH: &str = "~/.config/kanidm-profiles.toml";
 
@@ -133,19 +133,21 @@ fn main() {
     };
 
     let profile = profiles.profiles.get(selected_profile.unwrap()).unwrap();
-    println!(
-        "Applying new config:\n{}",
-        toml::to_string(profile).unwrap()
-    );
+    println!("{}", style("Applying new config").green());
+
+    println!("{}", toml::to_string(profile).unwrap());
 
     let config_path: String = shellexpand::tilde(CONFIG_PATH).into();
     let mut file = File::create(config_path).unwrap();
 
     match file.write(toml::to_string(profile).unwrap().as_bytes()) {
         Ok(woot) => println!(
-            "Successfully wrote {:?} bytes to the new config file.",
-            woot
+            "{}",
+            style(format!("Successfully wrote {:?} bytes to the new config file.",
+            woot)).green()
         ),
-        Err(error) => println!("Oh no: {:?}", error),
+        Err(error) => println!(
+            "{}",
+            style(format!("Oh no: {:?}", error)).red()),
     }
 }
