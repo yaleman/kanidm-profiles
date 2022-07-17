@@ -1,0 +1,18 @@
+[package]
+name = "kanidm-profiles"
+description = "A client config profiles switcher for Kanidm, handy for dev etc."
+version = "0.1.0"
+edition = "2021"
+authors = [ "James Hodgkinson <james@terminaloutcomes.com>"]
+homepage = "https://github.com/yaleman/kanidm-profiles"
+repository = "https://github.com/yaleman/kanidm-profiles"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+console = "0.15.0"
+dialoguer = "0.10.1"
+serde = { version = "^1.0.138", features = ["derive"] }
+shellexpand = "2.1.0"
+toml = "0.5.9"
