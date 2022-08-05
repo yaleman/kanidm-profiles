@@ -19,5 +19,5 @@ codegen-units = 1
 console = "0.15.1"
 dialoguer = "0.10.2"
 serde = { version = "^1.0.142", features = ["derive"] }
-shellexpand = "2.1.0"
+shellexpand = "2.1.2"
 toml = "0.5.9"
