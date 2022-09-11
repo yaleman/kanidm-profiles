@@ -1,7 +1,6 @@
 //! Quick config switcher for kanidm CLI profiles
 
 use std::fs::File;
-use kanidm_client::KanidmClientConfig as Kanidm_ClientConfig;
 use serde::{Deserialize, Serialize};
 use std::io::{ErrorKind, Read, Write};
 
@@ -24,11 +23,11 @@ struct RadiusClient {
 
 #[derive(Debug, Deserialize, Serialize)]
 struct KanidmClientConfig {
+    #[serde(flatten)]
+    kanidm_client_config: kanidm_client::KanidmClientConfig,
+
+    #[serde(skip_serializing)]
     name: String,
-    uri: String,
-    verify_ca: Option<bool>,
-    verify_hostnames: Option<bool>,
-    ca_path: Option<String>,
     #[allow(dead_code)]
     username: Option<String>,
     #[allow(dead_code)]
@@ -46,7 +45,17 @@ struct KanidmClientConfig {
 
 impl std::fmt::Display for KanidmClientConfig {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> ::std::result::Result<(), ::std::fmt::Error> {
-        f.write_str(format!("{} ({})", self.name.as_str(), self.uri.as_str()).as_str())
+
+        let uri = match &self.kanidm_client_config.uri {
+            Some(value) => value,
+            None => "<unset>",
+        };
+
+        f.write_str(&format!(
+            "{} ({})",
+            self.name.as_str(),
+            &uri
+        ))
     }
 }
 
