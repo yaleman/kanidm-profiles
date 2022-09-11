@@ -1,7 +1,7 @@
 //! Quick config switcher for kanidm CLI profiles
 
 use std::fs::File;
-
+use kanidm_client::KanidmClientConfig as Kanidm_ClientConfig;
 use serde::{Deserialize, Serialize};
 use std::io::{ErrorKind, Read, Write};
 
