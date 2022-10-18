@@ -1,8 +1,9 @@
 //! Quick config switcher for kanidm CLI profiles
 
-use std::fs::File;
 use serde::{Deserialize, Serialize};
+use std::fs::File;
 use std::io::{ErrorKind, Read, Write};
+use std::path::Path;
 
 use console::{style, Term};
 const CONFIG_PATH: &str = "~/.config/kanidm";
@@ -10,7 +11,7 @@ const PROFILE_PATH: &str = "~/.config/kanidm-profiles.toml";
 
 #[derive(Debug, Deserialize, Serialize)]
 struct RadiusGroup {
-    name: String,
+    spn: String,
     vlan: u16,
 }
 
@@ -45,17 +46,12 @@ struct KanidmClientConfig {
 
 impl std::fmt::Display for KanidmClientConfig {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> ::std::result::Result<(), ::std::fmt::Error> {
-
         let uri = match &self.kanidm_client_config.uri {
             Some(value) => value,
             None => "<unset>",
         };
 
-        f.write_str(&format!(
-            "{} ({})",
-            self.name.as_str(),
-            &uri
-        ))
+        f.write_str(&format!("{} ({})", self.name.as_str(), &uri))
     }
 }
 
@@ -70,6 +66,12 @@ impl KanidmProfiles {
         eprintln!("Attempting to load profiles from {:#?}", &PROFILE_PATH);
         // If the file does not exist, we skip this function.
         let loadpath: String = shellexpand::tilde(&PROFILE_PATH).into();
+
+        let testpath = Path::new(loadpath.as_str());
+        if !testpath.exists() {
+            eprintln!("Failed to find config file: {testpath:?}");
+            return Err(());
+        }
         let mut f = match File::open(loadpath) {
             Ok(f) => {
                 eprintln!(
@@ -105,7 +107,7 @@ impl KanidmProfiles {
 
         let mut contents = String::new();
         f.read_to_string(&mut contents)
-            .map_err(|e| eprintln!("{:?}", e))?;
+            .map_err(|e| eprintln!("Failed to parse kanidm-profiles config file: {:?}", e))?;
 
         let config: KanidmProfiles =
             toml::from_str(contents.as_str()).map_err(|e| eprintln!("{:?}", e))?;
@@ -152,11 +154,12 @@ fn main() {
     match file.write(toml::to_string(profile).unwrap().as_bytes()) {
         Ok(woot) => println!(
             "{}",
-            style(format!("Successfully wrote {:?} bytes to the new config file.",
-            woot)).green()
+            style(format!(
+                "Successfully wrote {:?} bytes to the new config file.",
+                woot
+            ))
+            .green()
         ),
-        Err(error) => println!(
-            "{}",
-            style(format!("Oh no: {:?}", error)).red()),
+        Err(error) => println!("{}", style(format!("Oh no: {:?}", error)).red()),
     }
 }
