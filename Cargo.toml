@@ -17,6 +17,6 @@ codegen-units = 1
 console = "0.15.1"
 dialoguer = "0.10.2"
 kanidm_client = { git = "https://github.com/kanidm/kanidm" }
-serde = { version = "^1.0.149", features = ["derive"] }
+serde = { version = "^1.0.150", features = ["derive"] }
 shellexpand = "3.0.0"
 toml = "0.5.9"
