@@ -508,7 +508,7 @@ dependencies = [
 [[package]]
 name = "kanidm_client"
 version = "1.1.0-alpha.11-dev"
-source = "git+https://github.com/kanidm/kanidm#a1a3a363ddbb39bb3d4758f18d8084883e01570d"
+source = "git+https://github.com/kanidm/kanidm#ae2e7e56bf02e5bfc6521af85ce62ce33c55c9cc"
 dependencies = [
  "kanidm_proto",
  "reqwest",
@@ -526,7 +526,7 @@ dependencies = [
 [[package]]
 name = "kanidm_proto"
 version = "1.1.0-alpha.11-dev"
-source = "git+https://github.com/kanidm/kanidm#a1a3a363ddbb39bb3d4758f18d8084883e01570d"
+source = "git+https://github.com/kanidm/kanidm#ae2e7e56bf02e5bfc6521af85ce62ce33c55c9cc"
 dependencies = [
  "base32",
  "base64urlsafedata",
@@ -777,6 +777,33 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b15813163c1d831bf4a13c3610c05c0d03b39feb07f7e09fa234dac9b15aaf39"
 
 [[package]]
+name = "peg"
+version = "0.8.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a07f2cafdc3babeebc087e499118343442b742cc7c31b4d054682cc598508554"
+dependencies = [
+ "peg-macros",
+ "peg-runtime",
+]
+
+[[package]]
+name = "peg-macros"
+version = "0.8.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a90084dc05cf0428428e3d12399f39faad19b0909f64fb9170c9fdd6d9cd49b"
+dependencies = [
+ "peg-runtime",
+ "proc-macro2",
+ "quote",
+]
+
+[[package]]
+name = "peg-runtime"
+version = "0.8.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9fa00462b37ead6d11a82c9d568b26682d78e0477dc02d1966c013af80969739"
+
+[[package]]
 name = "percent-encoding"
 version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -974,9 +1001,10 @@ dependencies = [
 [[package]]
 name = "scim_proto"
 version = "0.1.0"
-source = "git+https://github.com/kanidm/scim.git#cb147c80fb14dd87218698d3d5608f2abd8617d5"
+source = "git+https://github.com/kanidm/scim.git#b5a392f2be32afaa6623d6a9707b6a0ce78e88f7"
 dependencies = [
  "base64urlsafedata",
+ "peg",
  "serde",
  "serde_json",
  "time 0.2.27",
@@ -1057,9 +1085,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.89"
+version = "1.0.91"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "020ff22c755c2ed3f8cf162dbb41a7268d934702f3ed3631656ea597e08fc3db"
+checksum = "877c235533714907a8c2464236f5c4b2a17262ef1bd71f38f35ea592c8da6883"
 dependencies = [
  "itoa",
  "ryu",
