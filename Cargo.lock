@@ -46,12 +46,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "904dfeac50f3cdaba28fc6f57fdcddb75f49ed61346676a78c4ffe55877802fd"
 
 [[package]]
+name = "base64"
+version = "0.21.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a4a4ddaa51a5bc52a6948f74c06d20aaaddb71924eab79b8c97a8c556e942d6a"
+
+[[package]]
 name = "base64urlsafedata"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dbc67436259cce95e00076dbcd3dd5e300c84d4c657d03e476b5c7619da7c2d6"
 dependencies = [
- "base64",
+ "base64 0.13.0",
  "serde",
  "serde_json",
 ]
@@ -508,7 +514,7 @@ dependencies = [
 [[package]]
 name = "kanidm_client"
 version = "1.1.0-alpha.11-dev"
-source = "git+https://github.com/kanidm/kanidm#00cf5f4e15a8bdc2f39a967acbc9f43460bf58aa"
+source = "git+https://github.com/kanidm/kanidm#3894dd43dfbac929c0cbb80b6606d8380c22ac56"
 dependencies = [
  "kanidm_proto",
  "reqwest",
@@ -526,7 +532,7 @@ dependencies = [
 [[package]]
 name = "kanidm_proto"
 version = "1.1.0-alpha.11-dev"
-source = "git+https://github.com/kanidm/kanidm#00cf5f4e15a8bdc2f39a967acbc9f43460bf58aa"
+source = "git+https://github.com/kanidm/kanidm#3894dd43dfbac929c0cbb80b6606d8380c22ac56"
 dependencies = [
  "base32",
  "base64urlsafedata",
@@ -942,12 +948,12 @@ dependencies = [
 
 [[package]]
 name = "reqwest"
-version = "0.11.13"
+version = "0.11.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "68cc60575865c7831548863cc02356512e3f1dc2f3f82cb837d7fc4cc8f3c97c"
+checksum = "21eed90ec8570952d53b772ecf8f206aa1ec9a3d76b2521c56c42973f2d91ee9"
 dependencies = [
  "async-compression",
- "base64",
+ "base64 0.21.0",
  "bytes",
  "cookie",
  "cookie_store",
@@ -967,7 +973,6 @@ dependencies = [
  "once_cell",
  "percent-encoding",
  "pin-project-lite",
- "proc-macro-hack",
  "serde",
  "serde_json",
  "serde_urlencoded",
@@ -1009,8 +1014,9 @@ dependencies = [
 
 [[package]]
 name = "scim_proto"
-version = "0.1.0"
-source = "git+https://github.com/kanidm/scim.git#b5a392f2be32afaa6623d6a9707b6a0ce78e88f7"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e5abc672c8241e5bd368c0a73bf24727e98b0000a8636a44b8eb42a1e22835ef"
 dependencies = [
  "base64urlsafedata",
  "peg",
@@ -1383,9 +1389,9 @@ checksum = "cda74da7e1a664f795bb1f8a87ec406fb89a02522cf6e50620d016add6dbbf5c"
 
 [[package]]
 name = "tokio"
-version = "1.24.1"
+version = "1.24.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1d9f76183f91ecfb55e1d7d5602bd1d979e38a3a522fe900241cf195624d67ae"
+checksum = "597a12a59981d9e3c38d216785b0c37399f6e415e8d0712047620f189371b0bb"
 dependencies = [
  "autocfg",
  "bytes",
