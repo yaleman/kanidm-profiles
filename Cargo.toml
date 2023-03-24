@@ -20,5 +20,5 @@ dialoguer = "0.10.3"
 kanidm_client = { git = "https://github.com/kanidm/kanidm" }
 serde = { version = "^1.0.154", features = ["derive"] }
 serde_json = "1.0.93"
-shellexpand = "3.0.0"
+shellexpand = "3.1.0"
 toml = "0.7.3"
