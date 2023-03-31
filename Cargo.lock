@@ -601,7 +601,7 @@ dependencies = [
 [[package]]
 name = "kanidm_client"
 version = "1.1.0-alpha.12-dev"
-source = "git+https://github.com/kanidm/kanidm#00f36f280ec882fad7cb52bb8d8d98dbe7aa5e77"
+source = "git+https://github.com/kanidm/kanidm#9fa3e4b889fc4cc3b999014755242f23e1f2a03c"
 dependencies = [
  "kanidm_proto",
  "reqwest",
@@ -619,7 +619,7 @@ dependencies = [
 [[package]]
 name = "kanidm_proto"
 version = "1.1.0-alpha.12-dev"
-source = "git+https://github.com/kanidm/kanidm#00f36f280ec882fad7cb52bb8d8d98dbe7aa5e77"
+source = "git+https://github.com/kanidm/kanidm#9fa3e4b889fc4cc3b999014755242f23e1f2a03c"
 dependencies = [
  "base32",
  "base64urlsafedata",
@@ -1038,9 +1038,9 @@ dependencies = [
 
 [[package]]
 name = "reqwest"
-version = "0.11.14"
+version = "0.11.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "21eed90ec8570952d53b772ecf8f206aa1ec9a3d76b2521c56c42973f2d91ee9"
+checksum = "27b71749df584b7f4cac2c426c127a7c785a5106cc98f7a8feb044115f0fa254"
 dependencies = [
  "async-compression",
  "base64",
