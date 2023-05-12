@@ -662,7 +662,7 @@ dependencies = [
 [[package]]
 name = "kanidm_client"
 version = "1.1.0-beta.13"
-source = "git+https://github.com/kanidm/kanidm#6b0d1bacd8d5eb255dc15e58fd49bf20e62ea4bd"
+source = "git+https://github.com/kanidm/kanidm#1ddac86df7c81d7884d70da615237138de35f7f5"
 dependencies = [
  "kanidm_proto",
  "reqwest",
@@ -680,7 +680,7 @@ dependencies = [
 [[package]]
 name = "kanidm_proto"
 version = "1.1.0-beta.13"
-source = "git+https://github.com/kanidm/kanidm#6b0d1bacd8d5eb255dc15e58fd49bf20e62ea4bd"
+source = "git+https://github.com/kanidm/kanidm#1ddac86df7c81d7884d70da615237138de35f7f5"
 dependencies = [
  "base32",
  "base64urlsafedata",
