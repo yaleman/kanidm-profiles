@@ -654,7 +654,7 @@ dependencies = [
 [[package]]
 name = "kanidm_client"
 version = "1.1.0-beta.13-dev"
-source = "git+https://github.com/kanidm/kanidm#a0b59c6072c3863d6b80e6cfa0336ee609c02af3"
+source = "git+https://github.com/kanidm/kanidm#0425122ba3de78d8bae4bb7089c8c7994b7e925b"
 dependencies = [
  "kanidm_proto",
  "reqwest",
@@ -672,7 +672,7 @@ dependencies = [
 [[package]]
 name = "kanidm_proto"
 version = "1.1.0-beta.13-dev"
-source = "git+https://github.com/kanidm/kanidm#a0b59c6072c3863d6b80e6cfa0336ee609c02af3"
+source = "git+https://github.com/kanidm/kanidm#0425122ba3de78d8bae4bb7089c8c7994b7e925b"
 dependencies = [
  "base32",
  "base64urlsafedata",
@@ -1220,9 +1220,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.97"
+version = "1.0.99"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bdf3bf93142acad5821c99197022e170842cdbc1c30482b98750c688c640842a"
+checksum = "46266871c240a00b8f503b877622fe33430b3c7d963bdc0f2adc511e54a1eae3"
 dependencies = [
  "itoa",
  "ryu",
