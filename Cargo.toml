@@ -14,7 +14,7 @@ codegen-units = 1
 
 
 [dependencies]
-clap = { version = "4.3.17", features = ["derive"] }
+clap = { version = "4.3.19", features = ["derive"] }
 console = "0.15.7"
 dialoguer = "0.10.4"
 kanidm_client = { git = "https://github.com/kanidm/kanidm" }
