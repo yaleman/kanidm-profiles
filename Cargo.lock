@@ -781,7 +781,7 @@ dependencies = [
 [[package]]
 name = "kanidm_client"
 version = "1.1.0-rc.14-dev"
-source = "git+https://github.com/kanidm/kanidm#114b2b2d8e3f17cd79685780e7d1d3e309586827"
+source = "git+https://github.com/kanidm/kanidm#054b580fe650f012063240ba6f951c99f3c13ddc"
 dependencies = [
  "kanidm_proto",
  "reqwest",
@@ -799,7 +799,7 @@ dependencies = [
 [[package]]
 name = "kanidm_proto"
 version = "1.1.0-rc.14-dev"
-source = "git+https://github.com/kanidm/kanidm#114b2b2d8e3f17cd79685780e7d1d3e309586827"
+source = "git+https://github.com/kanidm/kanidm#054b580fe650f012063240ba6f951c99f3c13ddc"
 dependencies = [
  "base32",
  "base64urlsafedata",
@@ -1299,9 +1299,9 @@ dependencies = [
 
 [[package]]
 name = "serde"
-version = "1.0.181"
+version = "1.0.183"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6d3e73c93c3240c0bda063c239298e633114c69a888c3e37ca8bb33f343e9890"
+checksum = "32ac8da02677876d532745a130fc9d8e6edfa81a269b107c5b00829b91d8eb3c"
 dependencies = [
  "serde_derive",
 ]
@@ -1319,9 +1319,9 @@ dependencies = [
 
 [[package]]
 name = "serde_derive"
-version = "1.0.181"
+version = "1.0.183"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "be02f6cb0cd3a5ec20bbcfbcbd749f57daddb1a0882dc2e46a6c236c90b977ed"
+checksum = "aafe972d60b0b9bee71a91b92fee2d4fb3c9d7e8f6b179aa99f27203d99a4816"
 dependencies = [
  "proc-macro2",
  "quote",
