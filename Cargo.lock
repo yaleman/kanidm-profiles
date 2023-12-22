@@ -736,7 +736,7 @@ dependencies = [
 [[package]]
 name = "kanidm_client"
 version = "1.1.0-rc.15-dev"
-source = "git+https://github.com/kanidm/kanidm#c2d9c5c941b162568343b1faed0afeeb7fa6b21a"
+source = "git+https://github.com/kanidm/kanidm#dfc4bb5b250fa7e461ff284dcf8da0fd669c4e05"
 dependencies = [
  "hyper",
  "kanidm_lib_file_permissions",
@@ -756,7 +756,7 @@ dependencies = [
 [[package]]
 name = "kanidm_lib_file_permissions"
 version = "1.1.0-rc.15-dev"
-source = "git+https://github.com/kanidm/kanidm#c2d9c5c941b162568343b1faed0afeeb7fa6b21a"
+source = "git+https://github.com/kanidm/kanidm#dfc4bb5b250fa7e461ff284dcf8da0fd669c4e05"
 dependencies = [
  "kanidm_utils_users",
  "whoami",
@@ -765,7 +765,7 @@ dependencies = [
 [[package]]
 name = "kanidm_proto"
 version = "1.1.0-rc.15-dev"
-source = "git+https://github.com/kanidm/kanidm#c2d9c5c941b162568343b1faed0afeeb7fa6b21a"
+source = "git+https://github.com/kanidm/kanidm#dfc4bb5b250fa7e461ff284dcf8da0fd669c4e05"
 dependencies = [
  "base32",
  "base64urlsafedata",
@@ -786,7 +786,7 @@ dependencies = [
 [[package]]
 name = "kanidm_utils_users"
 version = "1.1.0-rc.15-dev"
-source = "git+https://github.com/kanidm/kanidm#c2d9c5c941b162568343b1faed0afeeb7fa6b21a"
+source = "git+https://github.com/kanidm/kanidm#dfc4bb5b250fa7e461ff284dcf8da0fd669c4e05"
 dependencies = [
  "libc",
 ]
