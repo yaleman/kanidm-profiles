@@ -3,7 +3,7 @@ name = "kanidm-profiles"
 description = "A client config profiles switcher for Kanidm, handy for when you are working between dev and prod environments."
 version = "0.1.2"
 edition = "2021"
-authors = [ "James Hodgkinson <james@terminaloutcomes.com>"]
+authors = ["James Hodgkinson <james@terminaloutcomes.com>"]
 homepage = "https://github.com/yaleman/kanidm-profiles"
 repository = "https://github.com/yaleman/kanidm-profiles"
 license = "MIT"
@@ -19,6 +19,6 @@ console = "0.15.8"
 dialoguer = "0.10.4"
 kanidm_client = { git = "https://github.com/kanidm/kanidm" }
 serde = { version = "^1.0.197", features = ["derive"] }
-serde_json = "1.0.113"
+serde_json = "1.0.114"
 shellexpand = "3.1.0"
 toml = "0.8.10"
