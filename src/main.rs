@@ -13,15 +13,13 @@ const PROFILE_PATH: &str = "~/.config/kanidm-profiles.toml";
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
 struct Cli {
-
     #[command(subcommand)]
     command: Option<Commands>,
 
     /// Profile to act on
-    #[arg(short,long)]
+    #[arg(short, long)]
     profile: Option<String>,
 }
-
 
 #[derive(Subcommand)]
 enum Commands {
@@ -147,7 +145,11 @@ impl KanidmProfiles {
 
 /// Handles the get command
 fn get_field_value(field: String, profile: &KanidmClientConfig) {
-    eprintln!("You asked to get field {} from {}", field, profile.name.clone());
+    eprintln!(
+        "You asked to get field {} from {}",
+        field,
+        profile.name.clone()
+    );
     let parsed_profile = serde_json::json!(profile);
     match parsed_profile.pointer(&field) {
         Some(val) => println!("{}", val.as_str().unwrap()),
@@ -159,14 +161,18 @@ fn get_field_value(field: String, profile: &KanidmClientConfig) {
 }
 /// Handles the set command
 fn set_field_value(field: String, value: String, profile: &KanidmClientConfig) {
-    eprintln!("You asked to set field {} from {}", field, profile.name.clone());
+    eprintln!(
+        "You asked to set field {} from {}",
+        field,
+        profile.name.clone()
+    );
     let mut parsed_profile = serde_json::json!(profile);
     match parsed_profile.pointer_mut(&field) {
         Some(val) => {
             println!("{}", val.as_str().unwrap());
             let newval = serde_json::Value::from(value);
             *val = newval;
-        },
+        }
         None => {
             eprintln!("Couldn't find {field:?}");
             std::process::exit(1);
@@ -208,20 +214,23 @@ fn main() {
             }
         }
         Some(profile_name) => {
-            profiles.profiles.iter()
-            .enumerate().find_map(|(index, profile)| {
-                match profile.name==profile_name {
-                    true => Some(index),
-                    false => {
-                        // println!("{} didn't match {}", profile.name, profile_name);
-                        None
-                    },
-                }
-            })
+            profiles
+                .profiles
+                .iter()
+                .enumerate()
+                .find_map(|(index, profile)| {
+                    match profile.name == profile_name {
+                        true => Some(index),
+                        false => {
+                            // println!("{} didn't match {}", profile.name, profile_name);
+                            None
+                        }
+                    }
+                })
         }
     };
 
-    let mut profile = match profile {
+    let profile = match profile {
         Some(val) => profiles.profiles.get(val).unwrap(),
         None => {
             eprintln!("Couldn't find matching profile, quitting!");
@@ -229,19 +238,17 @@ fn main() {
         }
     };
 
-
     if let Some(command) = cli.command {
         match command {
             Commands::Get { field } => {
                 get_field_value(field, profile);
-            },
+            }
             Commands::Set { field, value } => {
                 set_field_value(field, value, profile);
-            },
+            }
         };
         std::process::exit(0);
     }
-
 
     println!("{}", style("Applying new config").green());
 
