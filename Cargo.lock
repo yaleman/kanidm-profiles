@@ -742,7 +742,7 @@ dependencies = [
 [[package]]
 name = "kanidm_client"
 version = "1.2.0-dev"
-source = "git+https://github.com/kanidm/kanidm#e62f7113a69e9c30564fae1b4a22178a5cf709f0"
+source = "git+https://github.com/kanidm/kanidm#1c124bdc205c52e792b6f9a5961856804dde93e1"
 dependencies = [
  "hyper",
  "kanidm_lib_file_permissions",
@@ -762,7 +762,7 @@ dependencies = [
 [[package]]
 name = "kanidm_lib_file_permissions"
 version = "1.2.0-dev"
-source = "git+https://github.com/kanidm/kanidm#e62f7113a69e9c30564fae1b4a22178a5cf709f0"
+source = "git+https://github.com/kanidm/kanidm#1c124bdc205c52e792b6f9a5961856804dde93e1"
 dependencies = [
  "kanidm_utils_users",
  "whoami",
@@ -771,7 +771,7 @@ dependencies = [
 [[package]]
 name = "kanidm_proto"
 version = "1.2.0-dev"
-source = "git+https://github.com/kanidm/kanidm#e62f7113a69e9c30564fae1b4a22178a5cf709f0"
+source = "git+https://github.com/kanidm/kanidm#1c124bdc205c52e792b6f9a5961856804dde93e1"
 dependencies = [
  "base32",
  "base64urlsafedata",
@@ -792,7 +792,7 @@ dependencies = [
 [[package]]
 name = "kanidm_utils_users"
 version = "1.2.0-dev"
-source = "git+https://github.com/kanidm/kanidm#e62f7113a69e9c30564fae1b4a22178a5cf709f0"
+source = "git+https://github.com/kanidm/kanidm#1c124bdc205c52e792b6f9a5961856804dde93e1"
 dependencies = [
  "libc",
 ]
@@ -1218,9 +1218,9 @@ checksum = "c08c74e62047bb2de4ff487b251e4a92e24f48745648451635cec7d591162d9f"
 
 [[package]]
 name = "reqwest"
-version = "0.11.24"
+version = "0.11.27"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c6920094eb85afde5e4a138be3f2de8bbdf28000f0029e72c45025a56b042251"
+checksum = "dd67538700a17451e7cba03ac727fb961abb7607553461627b97de0b89cf4a62"
 dependencies = [
  "async-compression",
  "base64",
@@ -1409,9 +1409,9 @@ dependencies = [
 
 [[package]]
 name = "serde_with"
-version = "3.6.1"
+version = "3.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "15d167997bd841ec232f5b2b8e0e26606df2e7caa4c31b95ea9ca52b200bd270"
+checksum = "ee80b0e361bbf88fd2f6e242ccd19cfda072cb0faa6ae694ecee08199938569a"
 dependencies = [
  "base64",
  "chrono",
@@ -1427,9 +1427,9 @@ dependencies = [
 
 [[package]]
 name = "serde_with_macros"
-version = "3.6.1"
+version = "3.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "865f9743393e638991566a8b7a479043c2c8da94a33e0a31f18214c9cae0a64d"
+checksum = "6561dc161a9224638a31d876ccdfefbc1df91d3f3a8342eddb35f055d48c7655"
 dependencies = [
  "darling",
  "proc-macro2",
@@ -1911,9 +1911,9 @@ dependencies = [
 
 [[package]]
 name = "uuid"
-version = "1.7.0"
+version = "1.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f00cc9702ca12d3c81455259621e676d0f7251cec66a21e98fe2e9a37db93b2a"
+checksum = "a183cf7feeba97b4dd1c0d46788634f6221d87fa961b305bed08c851829efcc0"
 dependencies = [
  "getrandom",
  "serde",
@@ -1951,6 +1951,12 @@ name = "wasi"
 version = "0.11.0+wasi-snapshot-preview1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9c8d87e72b64a3b4db28d11ce29237c246188f4f51057d65a7eab63b7987e423"
+
+[[package]]
+name = "wasite"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b8dad83b4f25e74f184f64c43b150b91efe7647395b42289f38e50566d82855b"
 
 [[package]]
 name = "wasm-bindgen"
@@ -2048,11 +2054,12 @@ dependencies = [
 
 [[package]]
 name = "whoami"
-version = "1.4.1"
+version = "1.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "22fc3756b8a9133049b26c7f61ab35416c130e8c09b660f5b3958b446f52cc50"
+checksum = "a44ab49fad634e88f55bf8f9bb3abd2f27d7204172a112c7c9987e01c1c94ea9"
 dependencies = [
- "wasm-bindgen",
+ "redox_syscall",
+ "wasite",
  "web-sys",
 ]
 
