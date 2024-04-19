@@ -242,6 +242,22 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "acbf1af155f9b9ef647e42cdc158db4b64a1b61f743629225fde6f3e0be2a7c7"
 
 [[package]]
+name = "compact_jwt"
+version = "0.4.0-dev"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1d7adf14f5a7fc546b0828c69abe4dc4e16aad4de49e01553f54d6cbbc8a0a99"
+dependencies = [
+ "base64",
+ "base64urlsafedata",
+ "hex",
+ "serde",
+ "serde_json",
+ "tracing",
+ "url",
+ "uuid",
+]
+
+[[package]]
 name = "console"
 version = "0.15.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -742,8 +758,9 @@ dependencies = [
 [[package]]
 name = "kanidm_client"
 version = "1.2.0-dev"
-source = "git+https://github.com/kanidm/kanidm#b65172a6aa49efa7eb3efc7f9cc2dbef10177d6f"
+source = "git+https://github.com/kanidm/kanidm#62bbd7e3eafb33ae61e3acad87f0fa9c98b89020"
 dependencies = [
+ "compact_jwt",
  "hyper",
  "kanidm_lib_file_permissions",
  "kanidm_proto",
@@ -762,7 +779,7 @@ dependencies = [
 [[package]]
 name = "kanidm_lib_file_permissions"
 version = "1.2.0-dev"
-source = "git+https://github.com/kanidm/kanidm#b65172a6aa49efa7eb3efc7f9cc2dbef10177d6f"
+source = "git+https://github.com/kanidm/kanidm#62bbd7e3eafb33ae61e3acad87f0fa9c98b89020"
 dependencies = [
  "kanidm_utils_users",
  "whoami",
@@ -771,7 +788,7 @@ dependencies = [
 [[package]]
 name = "kanidm_proto"
 version = "1.2.0-dev"
-source = "git+https://github.com/kanidm/kanidm#b65172a6aa49efa7eb3efc7f9cc2dbef10177d6f"
+source = "git+https://github.com/kanidm/kanidm#62bbd7e3eafb33ae61e3acad87f0fa9c98b89020"
 dependencies = [
  "base32",
  "base64urlsafedata",
@@ -792,7 +809,7 @@ dependencies = [
 [[package]]
 name = "kanidm_utils_users"
 version = "1.2.0-dev"
-source = "git+https://github.com/kanidm/kanidm#b65172a6aa49efa7eb3efc7f9cc2dbef10177d6f"
+source = "git+https://github.com/kanidm/kanidm#62bbd7e3eafb33ae61e3acad87f0fa9c98b89020"
 dependencies = [
  "libc",
 ]
