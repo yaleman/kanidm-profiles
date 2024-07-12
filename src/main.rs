@@ -1,14 +1,13 @@
 //! Quick config switcher for kanidm CLI profiles
 
 use std::fs::File;
-use std::io::{ErrorKind, Read, Write};
-use std::path::Path;
+use std::io::Write;
 
 use clap::{Parser, Subcommand};
 use console::{style, Term};
-use serde::{Deserialize, Serialize};
-const CONFIG_PATH: &str = "~/.config/kanidm";
-const PROFILE_PATH: &str = "~/.config/kanidm-profiles.toml";
+use kanidm_profiles::client::KanidmClientConfig;
+use kanidm_profiles::profiles::KanidmProfiles;
+use kanidm_profiles::CONFIG_PATH;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -35,112 +34,6 @@ enum Commands {
         #[arg()]
         value: String,
     },
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-struct RadiusGroup {
-    spn: String,
-    vlan: u16,
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-struct RadiusClient {
-    name: String,
-    ipaddr: String,
-    secret: String,
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-struct KanidmClientConfig {
-    #[serde(flatten)]
-    kanidm_client_config: kanidm_client::KanidmClientConfig,
-
-    #[serde(skip_serializing)]
-    name: String,
-    #[allow(dead_code)]
-    username: Option<String>,
-    #[allow(dead_code)]
-    password: Option<String>,
-    // Used in the RADIUS integration
-    #[allow(dead_code)]
-    radius_required_groups: Option<Vec<String>>,
-    // Used in the RADIUS integration
-    #[allow(dead_code)]
-    radius_groups: Option<Vec<RadiusGroup>>,
-    // Used in the RADIUS integration
-    #[allow(dead_code)]
-    radius_clients: Option<Vec<RadiusClient>>,
-}
-
-impl std::fmt::Display for KanidmClientConfig {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> ::std::result::Result<(), ::std::fmt::Error> {
-        let uri = match &self.kanidm_client_config.uri {
-            Some(value) => value,
-            None => "<unset>",
-        };
-
-        f.write_str(&format!("{} ({})", self.name.as_str(), &uri))
-    }
-}
-
-#[derive(Debug, Default, Deserialize)]
-struct KanidmProfiles {
-    profiles: Vec<KanidmClientConfig>,
-}
-
-impl KanidmProfiles {
-    /// let's parse the thing
-    fn parse_config_profiles(self) -> Result<Self, ()> {
-        eprintln!("Attempting to load profiles from {:#?}", &PROFILE_PATH);
-        // If the file does not exist, we skip this function.
-        let loadpath: String = shellexpand::tilde(&PROFILE_PATH).into();
-
-        let testpath = Path::new(loadpath.as_str());
-        if !testpath.exists() {
-            eprintln!("Failed to find config file: {testpath:?}");
-            return Err(());
-        }
-        let mut f = match File::open(loadpath) {
-            Ok(f) => {
-                eprintln!(
-                    "Successfully opened configuration file {:#?}",
-                    &PROFILE_PATH
-                );
-                f
-            }
-            Err(e) => {
-                match e.kind() {
-                    ErrorKind::NotFound => {
-                        eprintln!(
-                            "Configuration file {:#?} not found, please create one!",
-                            &PROFILE_PATH
-                        );
-                    }
-                    ErrorKind::PermissionDenied => {
-                        eprintln!(
-                            "Permission denied loading configuration file {:#?}, bailing.",
-                            &PROFILE_PATH
-                        );
-                    }
-                    _ => {
-                        eprintln!(
-                            "Unable to open config file {:#?} [{:?}], bailing ...",
-                            &PROFILE_PATH, e
-                        );
-                    }
-                };
-                std::process::exit(1);
-            }
-        };
-
-        let mut contents = String::new();
-        f.read_to_string(&mut contents)
-            .map_err(|e| eprintln!("Failed to parse kanidm-profiles config file: {:?}", e))?;
-
-        let config: KanidmProfiles =
-            toml::from_str(contents.as_str()).map_err(|e| eprintln!("{:?}", e))?;
-        Ok(config)
-    }
 }
 
 /// Handles the get command

@@ -17,8 +17,11 @@ codegen-units = 1
 clap = { version = "4.5.9", features = ["derive"] }
 console = "0.15.8"
 dialoguer = "0.11.0"
-kanidm_client = { git = "https://github.com/kanidm/kanidm" }
 serde = { version = "^1.0.204", features = ["derive"] }
 serde_json = "1.0.120"
 shellexpand = "3.1.0"
 toml = "0.8.14"
+
+[dependencies.kanidm_client]
+path = "../kanidm/libs/client"
+# git = "https://github.com/kanidm/kanidm"
