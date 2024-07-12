@@ -23,5 +23,6 @@ shellexpand = "3.1.0"
 toml = "0.8.14"
 
 [dependencies.kanidm_client]
-path = "../kanidm/libs/client"
-# git = "https://github.com/kanidm/kanidm"
+# path = "../kanidm/libs/client"
+git = "https://github.com/yaleman/kanidm"
+branch = "kanidm-client-pub"
