@@ -1,7 +1,7 @@
 [package]
 name = "kanidm-profiles"
 description = "A client config profiles switcher for Kanidm, handy for when you are working between dev and prod environments."
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 authors = ["James Hodgkinson <james@terminaloutcomes.com>"]
 homepage = "https://github.com/yaleman/kanidm-profiles"
