@@ -2189,9 +2189,9 @@ dependencies = [
 
 [[package]]
 name = "kanidm_build_profiles"
-version = "1.7.0"
+version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0cbb0e2748183125168b123a9616f849b551f51e1a7e40d59dd8e59f330618e5"
+checksum = "aef5780fac05c7c369a09998f3de4c79546cff9ec4baa2b1ebd6127e9865ac99"
 dependencies = [
  "base64 0.22.1",
  "gix",
@@ -2202,9 +2202,9 @@ dependencies = [
 
 [[package]]
 name = "kanidm_client"
-version = "1.7.0"
+version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "24a2c3013a5fb1415a14a402ab61fba7dd6f15c2327740e6c28b159c47b475ba"
+checksum = "6a5ffef59629fcc72cf79dd91d0b7eef6c66c36c8eba64799a9715ac1c83e08a"
 dependencies = [
  "compact_jwt",
  "http",
@@ -2226,18 +2226,18 @@ dependencies = [
 
 [[package]]
 name = "kanidm_lib_file_permissions"
-version = "1.7.0"
+version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "326879f9718dbdc478927663793b707d60168350939e0034bf795cf12df19042"
+checksum = "d7edfbc2838875f00c9c5746ff75238ea57a6874b6c0480036557438e658fcea"
 dependencies = [
  "kanidm_utils_users",
 ]
 
 [[package]]
 name = "kanidm_proto"
-version = "1.7.0"
+version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "182ed9cb30cf7868b1bf605b620285801298e8b899b2394037d476f233eee1e2"
+checksum = "6a4adee16c325cd1c937cbb8b4a8bc4b46242ce77dedb0540621c6a356f43b44"
 dependencies = [
  "base32",
  "base64 0.22.1",
@@ -2262,9 +2262,9 @@ dependencies = [
 
 [[package]]
 name = "kanidm_utils_users"
-version = "1.7.0"
+version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6dde250d1de90b59108d567da0f33bf9f6eac4077d57ab123d09860a2e58330e"
+checksum = "1ce8873d590e05eb1ad91fee8ede4e86004afb2817f76f5634f09dfe1c840dd0"
 dependencies = [
  "libc",
 ]
@@ -3222,9 +3222,9 @@ dependencies = [
 
 [[package]]
 name = "scim_proto"
-version = "1.7.0"
+version = "1.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5baafd2783b9f419378d3163bd6e7e597dcdaa749cc93aa832589e516255f639"
+checksum = "0f6c388fc2c743a21a057da90b8ee44089adbcab02082d19927657f1eee31376"
 dependencies = [
  "base64urlsafedata",
  "peg",
