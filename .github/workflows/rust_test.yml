@@ -3,7 +3,6 @@ name: "Rust Testing"
 "on":
   push:
 
-
 env:
   SCCACHE_GHA_ENABLED: "true"
   RUSTC_WRAPPER: "sccache"
@@ -21,8 +20,6 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
       - name: Setup sccache
         uses: mozilla-actions/sccache-action@v0.0.9
-        with:
-          version: "v0.4.2"
       - name: Run test
         run: cargo test
 
@@ -34,8 +31,5 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
       - name: Setup sccache
         uses: mozilla-actions/sccache-action@v0.0.9
-        with:
-          version: "v0.4.2"
       - name: Run test
-        run: cargo build --release && cargo build
-
+        run: cargo build --release
