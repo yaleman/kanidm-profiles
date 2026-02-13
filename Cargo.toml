@@ -21,7 +21,7 @@ kanidm_client = "1.8.5"
 serde = { version = "^1.0.228", features = ["derive"] }
 serde_json = "1.0.149"
 shellexpand = "3.1.1"
-toml = "0.9.11"
+toml = "1.0.1"
 
 # [dependencies.kanidm_client]
 # # path = "../kanidm/libs/client"
